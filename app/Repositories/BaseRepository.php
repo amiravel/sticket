@@ -2,13 +2,24 @@
 
 namespace App\Repositories;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
-abstract class BaseRepository
+abstract class BaseRepository implements BaseRepositoryInterface
 {
+
+    protected Builder $query;
+
     public function __construct(
         protected Model $model
-    ) {}
+    ) {
+        $this->setQuery();
+    }
+
+    public function setQuery(): void
+    {
+        $this->query = $this->model->newQuery();
+    }
 
     public function paginate(int $page)
     {

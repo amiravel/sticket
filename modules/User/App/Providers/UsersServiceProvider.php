@@ -10,9 +10,11 @@ class UsersServiceProvider extends ServiceProvider
     public function register()
     {
         $this->loadMigrationsFrom(__DIR__.'/../../Database/Migrations');
-        $this->app->register(\Modules\User\App\Providers\RouteServiceProvider::class);
-        $this->app->register(\Modules\User\App\Providers\ServicesServiceProvider::class);
-        $this->app->register(\Modules\User\App\Providers\RepositoryServiceProvider::class);
+
+        $this->app->register(RouteServiceProvider::class);
+        $this->app->register(ServicesServiceProvider::class);
+        $this->app->register(RepositoryServiceProvider::class);
+        $this->app->register(AdaptersServiceProvider::class);
     }
 
 

@@ -13,4 +13,9 @@ class UserRepository extends BaseRepository implements UserRepositoryInterface
         parent::__construct($model);
     }
 
+    public function findByEmail($email): \Illuminate\Database\Eloquent\Model
+    {
+        return $this->query->where('email', $email)
+            ->firstOrFail();
+    }
 }

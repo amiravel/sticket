@@ -4,6 +4,8 @@ namespace App\Repositories;
 
 interface BaseRepositoryInterface
 {
+    public function setQuery(): void;
+
     public function paginate(int $page);
 
     public function find(int $id);

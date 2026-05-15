@@ -9,7 +9,7 @@ interface ResponseInterface
 
     public function ok(): \Illuminate\Http\JsonResponse;
 
-//    public function item();
+    public function item($data): \Illuminate\Http\JsonResponse;
 
 
 
