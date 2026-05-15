@@ -121,6 +121,7 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
         'M' => 
         array (
             'Monolog\\' => 8,
+            'Modules\\' => 8,
             'Mockery\\' => 8,
         ),
         'L' => 
@@ -133,6 +134,7 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
             'League\\CommonMark\\' => 18,
             'Laravel\\Tinker\\' => 15,
             'Laravel\\SerializableClosure\\' => 28,
+            'Laravel\\Sanctum\\' => 16,
             'Laravel\\Prompts\\' => 16,
             'Laravel\\Pao\\' => 12,
             'Laravel\\Pail\\' => 13,
@@ -349,8 +351,8 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-message/src',
-            1 => __DIR__ . '/..' . '/psr/http-factory/src',
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
         'Psr\\Http\\Client\\' => 
         array (
@@ -382,12 +384,16 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
         ),
         'Nette\\' => 
         array (
-            0 => __DIR__ . '/..' . '/nette/utils/src',
-            1 => __DIR__ . '/..' . '/nette/schema/src',
+            0 => __DIR__ . '/..' . '/nette/schema/src',
+            1 => __DIR__ . '/..' . '/nette/utils/src',
         ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
+        ),
+        'Modules\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/modules',
         ),
         'Mockery\\' => 
         array (
@@ -395,8 +401,8 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
         ),
         'League\\Uri\\' => 
         array (
-            0 => __DIR__ . '/..' . '/league/uri-interfaces',
-            1 => __DIR__ . '/..' . '/league/uri',
+            0 => __DIR__ . '/..' . '/league/uri',
+            1 => __DIR__ . '/..' . '/league/uri-interfaces',
         ),
         'League\\MimeTypeDetection\\' => 
         array (
@@ -425,6 +431,10 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
         'Laravel\\SerializableClosure\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/serializable-closure/src',
+        ),
+        'Laravel\\Sanctum\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravel/sanctum/src',
         ),
         'Laravel\\Prompts\\' => 
         array (
@@ -540,8 +550,9 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
 
     public static $classMap = array (
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
+        'App\\Utils\\Response\\Response' => __DIR__ . '/../..' . '/app/Utils/Response/Response.php',
+        'App\\Utils\\Response\\ResponseInterface' => __DIR__ . '/../..' . '/app/Utils/Response/ResponseInterface.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'Brick\\Math\\BigDecimal' => __DIR__ . '/..' . '/brick/math/src/BigDecimal.php',
         'Brick\\Math\\BigInteger' => __DIR__ . '/..' . '/brick/math/src/BigInteger.php',
@@ -664,7 +675,6 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
         'Cron\\HoursField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/HoursField.php',
         'Cron\\MinutesField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/MonthField.php',
-        'Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/database/factories/UserFactory.php',
         'Database\\Seeders\\DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/DatabaseSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
@@ -3184,6 +3194,26 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
         'Laravel\\Prompts\\Themes\\Default\\TextareaPromptRenderer' => __DIR__ . '/..' . '/laravel/prompts/src/Themes/Default/TextareaPromptRenderer.php',
         'Laravel\\Prompts\\Themes\\Default\\TitleRenderer' => __DIR__ . '/..' . '/laravel/prompts/src/Themes/Default/TitleRenderer.php',
         'Laravel\\Prompts\\Title' => __DIR__ . '/..' . '/laravel/prompts/src/Title.php',
+        'Laravel\\Sanctum\\Console\\Commands\\PruneExpired' => __DIR__ . '/..' . '/laravel/sanctum/src/Console/Commands/PruneExpired.php',
+        'Laravel\\Sanctum\\Contracts\\HasAbilities' => __DIR__ . '/..' . '/laravel/sanctum/src/Contracts/HasAbilities.php',
+        'Laravel\\Sanctum\\Contracts\\HasApiTokens' => __DIR__ . '/..' . '/laravel/sanctum/src/Contracts/HasApiTokens.php',
+        'Laravel\\Sanctum\\Events\\TokenAuthenticated' => __DIR__ . '/..' . '/laravel/sanctum/src/Events/TokenAuthenticated.php',
+        'Laravel\\Sanctum\\Exceptions\\MissingAbilityException' => __DIR__ . '/..' . '/laravel/sanctum/src/Exceptions/MissingAbilityException.php',
+        'Laravel\\Sanctum\\Exceptions\\MissingScopeException' => __DIR__ . '/..' . '/laravel/sanctum/src/Exceptions/MissingScopeException.php',
+        'Laravel\\Sanctum\\Guard' => __DIR__ . '/..' . '/laravel/sanctum/src/Guard.php',
+        'Laravel\\Sanctum\\HasApiTokens' => __DIR__ . '/..' . '/laravel/sanctum/src/HasApiTokens.php',
+        'Laravel\\Sanctum\\Http\\Controllers\\CsrfCookieController' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Controllers/CsrfCookieController.php',
+        'Laravel\\Sanctum\\Http\\Middleware\\AuthenticateSession' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/AuthenticateSession.php',
+        'Laravel\\Sanctum\\Http\\Middleware\\CheckAbilities' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/CheckAbilities.php',
+        'Laravel\\Sanctum\\Http\\Middleware\\CheckForAnyAbility' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/CheckForAnyAbility.php',
+        'Laravel\\Sanctum\\Http\\Middleware\\CheckForAnyScope' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/CheckForAnyScope.php',
+        'Laravel\\Sanctum\\Http\\Middleware\\CheckScopes' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/CheckScopes.php',
+        'Laravel\\Sanctum\\Http\\Middleware\\EnsureFrontendRequestsAreStateful' => __DIR__ . '/..' . '/laravel/sanctum/src/Http/Middleware/EnsureFrontendRequestsAreStateful.php',
+        'Laravel\\Sanctum\\NewAccessToken' => __DIR__ . '/..' . '/laravel/sanctum/src/NewAccessToken.php',
+        'Laravel\\Sanctum\\PersonalAccessToken' => __DIR__ . '/..' . '/laravel/sanctum/src/PersonalAccessToken.php',
+        'Laravel\\Sanctum\\Sanctum' => __DIR__ . '/..' . '/laravel/sanctum/src/Sanctum.php',
+        'Laravel\\Sanctum\\SanctumServiceProvider' => __DIR__ . '/..' . '/laravel/sanctum/src/SanctumServiceProvider.php',
+        'Laravel\\Sanctum\\TransientToken' => __DIR__ . '/..' . '/laravel/sanctum/src/TransientToken.php',
         'Laravel\\SerializableClosure\\Contracts\\Serializable' => __DIR__ . '/..' . '/laravel/serializable-closure/src/Contracts/Serializable.php',
         'Laravel\\SerializableClosure\\Contracts\\Signer' => __DIR__ . '/..' . '/laravel/serializable-closure/src/Contracts/Signer.php',
         'Laravel\\SerializableClosure\\Exceptions\\InvalidSignatureException' => __DIR__ . '/..' . '/laravel/serializable-closure/src/Exceptions/InvalidSignatureException.php',
@@ -3729,6 +3759,15 @@ class ComposerStaticInit12a93e9ee58f99b3ee9ac9b5d35d65e5
         'Mockery\\Undefined' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/Undefined.php',
         'Mockery\\VerificationDirector' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationDirector.php',
         'Mockery\\VerificationExpectation' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery/VerificationExpectation.php',
+        'Modules\\User\\App\\Http\\Controllers\\RegisterController' => __DIR__ . '/../..' . '/modules/User/App/Http/Controllers/RegisterController.php',
+        'Modules\\User\\App\\Http\\Requests\\RegisterRequest' => __DIR__ . '/../..' . '/modules/User/App/Http/Requests/RegisterRequest.php',
+        'Modules\\User\\App\\Models\\User' => __DIR__ . '/../..' . '/modules/User/App/Models/User.php',
+        'Modules\\User\\App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/modules/User/App/Providers/RouteServiceProvider.php',
+        'Modules\\User\\App\\Providers\\UsersServiceProvider' => __DIR__ . '/../..' . '/modules/User/App/Providers/UsersServiceProvider.php',
+        'Modules\\User\\Database\\Factories\\UserFactory' => __DIR__ . '/../..' . '/modules/User/Database/Factories/UserFactory.php',
+        'Modules\\User\\Database\\Seeders\\UserSeeder' => __DIR__ . '/../..' . '/modules/User/Database/Seeders/UserSeeder.php',
+        'Modules\\User\\Enums\\RolesEnum' => __DIR__ . '/../..' . '/modules/User/Enums/RolesEnum.php',
+        'Modules\\User\\Tests\\Feature\\RegisterControllerTest' => __DIR__ . '/../..' . '/modules/User/Tests/Feature/RegisterControllerTest.php',
         'Monolog\\Attribute\\AsMonologProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Attribute/AsMonologProcessor.php',
         'Monolog\\Attribute\\WithMonologChannel' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Attribute/WithMonologChannel.php',
         'Monolog\\DateTimeImmutable' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/DateTimeImmutable.php',

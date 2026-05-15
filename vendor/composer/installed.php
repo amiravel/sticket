@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'laravel/laravel',
-        'pretty_version' => 'v13.4.0',
-        'version' => '13.4.0.0',
-        'reference' => null,
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
+        'reference' => 'ca40d970999722c2ade6b7e5d1b45455f165a749',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -407,9 +407,9 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'v13.4.0',
-            'version' => '13.4.0.0',
-            'reference' => null,
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
+            'reference' => 'ca40d970999722c2ade6b7e5d1b45455f165a749',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -448,6 +448,15 @@
             'reference' => '6a82ac19a28b916ae0885828795dbd4c59d9a818',
             'type' => 'library',
             'install_path' => __DIR__ . '/../laravel/prompts',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
+        'laravel/sanctum' => array(
+            'pretty_version' => 'v4.3.2',
+            'version' => '4.3.2.0',
+            'reference' => '2a9bccc18e9907808e0018dd15fa643937886b1e',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../laravel/sanctum',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
@@ -802,9 +811,9 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
+                0 => '1.0 || 2.0 || 3.0',
                 1 => '3.0.0',
-                2 => '1.0 || 2.0 || 3.0',
+                2 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(

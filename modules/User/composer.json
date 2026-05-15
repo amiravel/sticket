@@ -1,0 +1,25 @@
+{
+  "name": "modules/User",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "type":"module",
+  "authors": [
+    {
+      "name": "Amir Hadi",
+      "email": "amirhadi747@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Modules\\User\\": "./"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Modules\\User\\Test\\": "./tests/"
+    }
+  },
+  "require": {
+  }
+}
