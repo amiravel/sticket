@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Filters\BaseFiltersInterface;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,6 +10,8 @@ abstract class BaseRepository implements BaseRepositoryInterface
 {
 
     protected Builder $query;
+
+    protected ?BaseFiltersInterface $filter;
 
     public function __construct(
         protected Model $model
@@ -48,5 +51,16 @@ abstract class BaseRepository implements BaseRepositoryInterface
     public function delete(int $id): bool
     {
         return $this->find($id)->delete();
+    }
+
+    public function filter(array $filters): static
+    {
+        if(is_null($this->filter)) {
+            abort(500, 'filter class not specified');
+        }
+
+        $this->query = $this->filter->apply($this->query, $filters);
+
+        return $this;
     }
 }

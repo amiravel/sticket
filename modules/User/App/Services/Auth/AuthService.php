@@ -5,6 +5,7 @@ namespace Modules\User\App\Services\Auth;
 use Illuminate\Support\Facades\Hash;
 use Modules\User\App\Adapters\UserTokenAdapterInterface;
 use Modules\User\App\Dtos\TokenDto;
+use Modules\User\App\Models\User;
 use Modules\User\App\Repositories\User\UserRepositoryInterface;
 
 class AuthService implements AuthServiceInterface
@@ -30,8 +31,8 @@ class AuthService implements AuthServiceInterface
         return $this->adapter->fromUserToTokenDto($user, $token);
     }
 
-    public function logout(int $id)
+    public function logout(User $user): void
     {
-        // TODO: Implement logout() method.
+        $user->currentAccessToken()->delete();
     }
 }

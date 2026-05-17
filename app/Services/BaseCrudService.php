@@ -37,4 +37,11 @@ abstract class BaseCrudService implements BaseCrudServiceInterface
     {
         return $this->repository->delete($id);
     }
+
+    public function filter(array $filters): static
+    {
+        $this->repository->filter($filters);
+
+        return $this;
+    }
 }

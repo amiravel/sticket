@@ -1,0 +1,24 @@
+{
+  "name": "modules/Ticket",
+  "description": "description",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Amir Hadi",
+      "email": "amirhadi747@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Modules\\Ticket\\": "./"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Modules\\Ticket\\Test\\": "./tests/"
+    }
+  },
+  "require": {
+  }
+}
