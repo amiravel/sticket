@@ -15,6 +15,7 @@ class UsersServiceProvider extends ServiceProvider
         $this->app->register(ServicesServiceProvider::class);
         $this->app->register(RepositoryServiceProvider::class);
         $this->app->register(AdaptersServiceProvider::class);
+        $this->app->register(FiltersServiceProvider::class);
     }
 
 

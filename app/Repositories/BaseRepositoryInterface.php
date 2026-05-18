@@ -17,4 +17,8 @@ interface BaseRepositoryInterface
     public function delete(int $id): bool;
 
     public function filter(array $filters): static;
+
+    public function pluck(string $column): static;
+
+    public function get($column = null);
 }

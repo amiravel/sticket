@@ -11,4 +11,8 @@ interface TicketServiceInterface extends BaseCrudServiceInterface
 
     public function bulkApproveSecondAdmin(array $data);
 
+    public function notifyUsers(array $ids): void;
+
+    public function bulkReply(array $data): void;
+
 }

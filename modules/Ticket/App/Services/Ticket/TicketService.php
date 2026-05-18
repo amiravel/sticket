@@ -15,6 +15,7 @@ use Modules\Ticket\App\Jobs\SendToThirdPartyJob;
 use Modules\Ticket\App\Notifications\TicketUpdateNotification;
 use Modules\Ticket\App\Repositories\Reply\ReplyRepositoryInterface;
 use Modules\Ticket\App\Repositories\Ticket\TicketRepositoryInterface;
+use Modules\User\App\Repositories\User\UserRepositoryInterface;
 
 class TicketService extends BaseCrudService implements TicketServiceInterface
 {
@@ -63,6 +64,8 @@ class TicketService extends BaseCrudService implements TicketServiceInterface
 
         SendToThirdPartyJob::dispatch($data['ids']);
 
+        $this->notifyUsers($data['ids']);
+
         $this->bulkReply($data);
     }
     public function bulkApprove(array $data)
@@ -71,6 +74,8 @@ class TicketService extends BaseCrudService implements TicketServiceInterface
             $data['ids'],
             ['status' => TicketStatusEnum::approved_1->value]
         );
+
+        $this->notifyUsers($data['ids']);
 
         $this->bulkReply($data);
     }
@@ -92,5 +97,21 @@ class TicketService extends BaseCrudService implements TicketServiceInterface
         $this->replyRepository->bulkCreate($replies);
     }
 
+    public function notifyUsers(array $ids): void
+    {
+        $userIds = $this->repository->filter(['ids_in' => $ids])
+            ->get()
+            ->pluck('user_id')
+            ->toArray();
+
+        $userRepo = App::make(UserRepositoryInterface::class);
+        $users = $userRepo->filter(['ids_in', $userIds])->get();
+
+        Notification::send(
+            $users,
+            new TicketUpdateNotification()
+        );
+
+    }
 
 }

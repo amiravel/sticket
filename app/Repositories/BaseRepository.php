@@ -63,4 +63,18 @@ abstract class BaseRepository implements BaseRepositoryInterface
 
         return $this;
     }
+
+    public function pluck(string $column): static
+    {
+        $this->query->pluck($column);
+
+        return $this;
+    }
+    public function get($column = null)
+    {
+        if(is_null($column)) {
+            return $this->query->get();
+        }
+        return $this->query->get($column);
+    }
 }
