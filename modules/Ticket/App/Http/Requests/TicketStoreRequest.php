@@ -20,10 +20,9 @@ class TicketStoreRequest extends FormRequest
     {
         return [
             'title' => [ 'required', 'string', 'max:255'],
-            'description' => ['nullable', 'string', 'max:5000',],
-            'status' => ['required', new Enum(TicketStatusEnum::class)],
+            'description' => ['required', 'string', 'max:5000',],
             'user_id' => ['required','integer','exists:users,id'],
-            'file' => ['nullable', 'file', 'max:4096', 'mimes:pdf,jpg,png,docx'],
+            'file' => ['required', 'file', 'max:4096', 'mimes:pdf,jpg,png,docx'],
         ];
     }
 
