@@ -190,3 +190,59 @@ Use:
 ## Project Ready
 
 If everything succeeds, the project is installed and ready for development.
+
+
+## Default Admin Data:
+
+### First Level Admin: 
+    
+```bash
+
+email: john@doe.com
+password: password
+
+```
+### Second Level Admin:
+
+```bash
+
+email: willem@defoe.com
+password: password
+
+```
+
+# end points:
+
+## Authentication:
+
+```bash
+login: /user/api/login POST
+register: /user/api/register POST
+logout: /user/api/logout DELETE
+```
+## Ticketing: 
+
+### normal users level:
+
+```bash
+create new ticket : /ticket/api/tickets POST
+```
+
+### Admin (First Level)
+
+```bash
+
+list of tickets: /ticket/api/tickets GET
+ticket item: /ticket/api/tickets/{id} GET
+update tickets: /ticket/api/tickets/{id} PATCH
+tickets bulk approve: /ticket/api/tickets/bulk-approve PATCH
+
+```
+
+### Admin (Second Level)
+
+```bash
+
+tickets bulk approve: /ticket/api/tickets/bulk-approve/second PATCH
+
+```

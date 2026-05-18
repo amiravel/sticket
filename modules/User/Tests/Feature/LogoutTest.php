@@ -25,7 +25,7 @@ class LogoutTest extends TestCase
         );
 
         $this->withToken($token)
-            ->postJson($this->route('/logout'))
+            ->deleteJson($this->route('/logout'))
             ->assertOk()
             ->assertJson([
                 'message' => 'ok',
@@ -40,7 +40,7 @@ class LogoutTest extends TestCase
 
     public function testLogoutRequiresAuthentication()
     {
-        $this->postJson(
+        $this->deleteJson(
             $this->route('/logout')
         )->assertUnauthorized();
     }
