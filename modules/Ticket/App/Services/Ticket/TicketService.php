@@ -8,9 +8,11 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Modules\Ticket\App\Enums\TicketStatusEnum;
 use Modules\Ticket\App\Jobs\SendToThirdPartyJob;
+use Modules\Ticket\App\Notifications\TicketUpdateNotification;
 use Modules\Ticket\App\Repositories\Reply\ReplyRepositoryInterface;
 use Modules\Ticket\App\Repositories\Ticket\TicketRepositoryInterface;
 
@@ -45,6 +47,11 @@ class TicketService extends BaseCrudService implements TicketServiceInterface
             $this->replyRepository->create(Arr::only($data, ['user_id', 'ticket_id', 'description']));
 
         });
+
+        Notification::send(
+            $this->repository->find($id)->user,
+            new TicketUpdateNotification()
+        );
     }
 
     public function bulkApproveSecondAdmin(array $data)

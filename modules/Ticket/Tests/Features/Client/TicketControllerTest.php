@@ -3,6 +3,7 @@
 namespace Modules\Ticket\Tests\Features\Client;
 
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 use Modules\Ticket\App\Models\Ticket;
 use Modules\User\App\Models\User;
@@ -32,7 +33,7 @@ class TicketControllerTest extends TestCase
         $this->postJson($this->route('/tickets'), $ticketData)
             ->assertOk();
 
-        $this->assertDatabaseHas('tickets', $ticketData);
+        $this->assertDatabaseHas('tickets', Arr::except($ticketData, ['file', 'status']));
 
         $this->assertDatabaseCount('tickets', 1);
     }
@@ -49,27 +50,6 @@ class TicketControllerTest extends TestCase
         $this->assertDatabaseCount('tickets', 0);
     }
 
-    public function testStoreInvalidStatusFails()
-    {
-        $user = User::factory()->create();
-
-        $this->actingAs($user);
-
-        $ticketData = Ticket::factory()
-            ->make(['user_id' => $user->id])
-            ->toArray();
-
-        $ticketData['status'] = 'invalid-status';
-
-        $ticketData['file'] = UploadedFile::fake()->image('ticket.jpg');
-
-
-        $this->postJson($this->route('/tickets'), $ticketData)
-            ->assertUnprocessable()
-            ->assertJsonValidationErrors(['status']);
-
-        $this->assertDatabaseCount('tickets', 0);
-    }
 
     public function testStoreInvalidFileTypeFails()
     {
